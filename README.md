@@ -1,7 +1,7 @@
 Ohjelmistotekniikan harjoitustyö
 ================================
 
-Aion koodata Laskimen, jossa käyttäjä pystyy kirjautumaan sisään, laskemaan yksinkertaisia laskutoimituksia ja näkemään oman laskimen käyttönsä historian.
+Tavoitteena on koodata laskin, jossa käyttäjä pystyy kirjautumaan sisään, laskemaan yksinkertaisia laskutoimituksia ja näkemään oman laskimen käyttönsä historian.
 
 ## Linkkejä
 
