@@ -13,6 +13,8 @@ class Calculator:
 
     def start(self):
         self._entry = ttk.Entry(master=self._root)
+        #Tee oma metodi painikkeiden lisäämisestä
+        # Ja poistamisesta? Kun kirjaudutaan ulos ja mennään takaisin login_viewiin
         self._number0 = ttk.Button(master=self._root, text="0", command=lambda: self._handle_button_click("0"))
         self._number1 = ttk.Button(master=self._root, text="1", command=lambda: self._handle_button_click("1"))
         self._number2 = ttk.Button(master=self._root, text="2", command=lambda: self._handle_button_click("2"))
@@ -74,5 +76,4 @@ class Calculator:
         from login_view import Login
         self._login = Login(self._root)
 
-        
         self._login.start()
