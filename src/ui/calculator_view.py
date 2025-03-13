@@ -1,6 +1,7 @@
 ### Luokan UI suunnittelussa on hyödynnetty kurssimateriaalia: https://ohjelmistotekniikka-hy.github.io/python/tkinter
 
 from tkinter import Tk, ttk
+from services.calculator_logic import CalculatorLogic
 
 class Calculator:
     def __init__(self, root):
@@ -8,11 +9,7 @@ class Calculator:
         self._root = root
         self._entry = None
 
-        self._first_operand = None
-        self._second_operand = None
-        self._operator = None
-
-        self._operators = ["+", "-", "*", "/"]
+        self._calculator_logic = CalculatorLogic()
 
     def start(self):
         self._entry = ttk.Entry(master=self._root)
@@ -54,49 +51,19 @@ class Calculator:
 
     def _handle_button_click(self, button):
         entry_value = self._entry.get()
+        print(entry_value)
 
-        # At first the user cannot click an operator of "=" symbol:
-        if entry_value == "":
-            if button in self._operators or button == "=":
-                return
-            
-        # If the user clicks an operand button, save the first operand and the operator:
-        if button in self._operators:
-            
-            # Return if the user has already clicked an operator button:
-            if self._operator != None:
-                return
-            
-            self._first_operand = entry_value
-            self._operator = button
-            self.update_entry(entry_value, button)
+### ChatGPT:llä generoitu koodi alkaa
 
-            return
+        result = self._calculator_logic.handle_click(entry_value, button)
         
-        # If the user clicks "=", save the second operand:
-        if button == "=":
-            self._second_operand = entry_value.split(f"{self._operator}")[1]
-            print(self._first_operand)
-            print(self._operator)
-            print(self._second_operand)
+        self.update_entry(result)
 
-        self.update_entry(entry_value, button)
-
-### ChatGPT:llä generoitu koodi alkaa:
-    def update_entry(self, entry_value, button):
+    def update_entry(self, update):
 
         self._entry.config(state="normal")  # Tehdään kentästä muokattavissa oleva
         self._entry.delete(0, "end")  # Tyhjennetään nykyinen sisältä
-        self._entry.insert(0, entry_value + button)  # Lisätään uuden painikkeen arvo loppuun
+        self._entry.insert(0, update)  # Lisätään uuden painikkeen arvo loppuun
         self._entry.config(state="readonly")  # Asetetaan kenttä taas luettavaksi
+
 ### ChatGPT:llä generoitu koodi päättyy
-
-
-
-window = Tk()
-window.title("Laskin")
-
-ui = Calculator(window)
-ui.start()
-
-window.mainloop()
