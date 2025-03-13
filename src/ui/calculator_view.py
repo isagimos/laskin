@@ -51,11 +51,15 @@ class Calculator:
 
     def _handle_button_click(self, button):
         entry_value = self._entry.get()
+        print("Tämä on entry_value, joka lähtee backendiin:")
         print(entry_value)
 
 ### ChatGPT:llä generoitu koodi alkaa
 
         result = self._calculator_logic.handle_click(entry_value, button)
+
+        print("Tämä arvo tulee takaisin backendistä:")
+        print(result)
         
         self.update_entry(result)
 

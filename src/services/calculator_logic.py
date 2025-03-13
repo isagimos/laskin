@@ -49,12 +49,15 @@ class CalculatorLogic:
         if button in self._operators:
             
             # Return if the user has already clicked an operator button:
+            print("HEIPPAAA")
             if self._operator != None:
+                print("NONNI")
+                print(entry_value)
                 return entry_value
             
             self._first_operand = entry_value
             self._operator = button
-
+            print("TÄNNE ASTI MENNÄÄN")
             return entry_value + button
         
         # If the user clicks "=", save the second operand:
@@ -85,4 +88,7 @@ class CalculatorLogic:
         if operator == "*":
             return first_operand * second_operand
         if operator == "/":
-            return first_operand / second_operand
+            try:
+                return first_operand / second_operand
+            except:
+                return "Nollalla ei voi jakaa"
