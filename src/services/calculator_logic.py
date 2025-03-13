@@ -41,7 +41,6 @@ class CalculatorLogic:
 
         # At first the user cannot click an operator or "=" symbol:
         if entry_value == "":
-            print("entry_value on ''")
             if button in self._operators or button == "=":
                 return entry_value
             
@@ -49,25 +48,18 @@ class CalculatorLogic:
         if button in self._operators:
             
             # Return if the user has already clicked an operator button:
-            print("HEIPPAAA")
             if self._operator != None:
-                print("NONNI")
-                print(entry_value)
+
                 return entry_value
             
             self._first_operand = entry_value
             self._operator = button
-            print("TÄNNE ASTI MENNÄÄN")
+
             return entry_value + button
         
         # If the user clicks "=", save the second operand:
         if button == "=":
             self._second_operand = entry_value.split(f"{self._operator}")[1]
-
-            print(self._first_operand)
-            print(self._operator)
-            print(self._second_operand)
-
             result = self.calculate(self._first_operand, self._second_operand, self._operator)
 
             self._first_operand = None
