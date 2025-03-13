@@ -7,7 +7,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../')))
 ### ChatGPT:llä generoitu koodi päättyy
 
 from tkinter import Tk, ttk
-from calculator_view import Calculator
+from login_view import Login
 
 class UI:
     def __init__(self, root):
@@ -15,13 +15,14 @@ class UI:
         self._current_view = None
 
     def start(self):
-        self._show_calculator_view()
+        self.__show_login_view()
     
-    def _show_calculator_view(self):
-        self._current_view = Calculator(self._root)
+    def __show_login_view(self):
+        self._current_view = Login(self._root)
         ### ChatGPT:llä generoitu koodi alkaa
         self._current_view.start()
         ### ChatGPT:llä generoitu koodi päättyy
+
 window = Tk()
 window.title("Laskin")
 
