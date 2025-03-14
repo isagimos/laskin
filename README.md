@@ -7,6 +7,7 @@ Tavoitteena on koodata laskin, jossa käyttäjä pystyy kirjautumaan sisään, l
 
 - [Laskarit](https://github.com/isagimos/ot-harjoitustyo/tree/master/laskarit)
 - [Työaikakirjanpito](https://github.com/isagimos/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+- [Changelog](https://github.com/isagimos/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
 
 
 ## Sovelluksen käyttöönotto
