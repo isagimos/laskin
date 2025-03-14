@@ -14,3 +14,4 @@
   - Laskimen käynnistyessä operaattorit ja operandi ovat None
   - Väärää muotoa olevia laskutoimituksia ei hyväksytä (esim. 1++2 tai 1-=)
   - Nollalla ei voi jakaa
+- Testattu, että sovellus toimii Cubbli Linuxilla
