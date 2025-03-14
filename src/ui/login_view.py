@@ -44,6 +44,7 @@ class Login:
         self._calculator.start()
 
     def _destroy_login_view(self):
+        
         self._password_label.destroy()
         self._username_entry.destroy()
         self._password_entry.destroy()
