@@ -53,13 +53,19 @@ class Login:
 
         result = self._login_check._check_username_and_password(username, password)
 
-        if result:
+        print(result)
+
+        if result == True:
 
             self._destroy_login_view()
 
-            self._calculator.start()
+            self._calculator.start(self._username)
         
         else:
+            try:
+                self._error_label.destroy()
+            except:
+                pass
             self._error_label = ttk.Label(master=self._root, text="Väärä käyttäjätunnus tai salasana")
             self._error_label.grid(row=4, columnspan=2)
 

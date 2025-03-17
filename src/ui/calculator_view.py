@@ -11,7 +11,9 @@ class Calculator:
 
         self._calculator_logic = CalculatorLogic()
 
-    def start(self):
+    def start(self, username):
+
+        self._username = username
         self._entry = ttk.Entry(master=self._root)
 
         self._entry.grid(row=0, column=0, columnspan=4, padx=5, pady=5)
@@ -19,15 +21,19 @@ class Calculator:
         self.add_numbers()
         self.add_operators_and_result()
 
+        self._username_label = ttk.Label(master=self._root,
+                                         text=f"Olet kirjautunut sisään käyttäjänä {self._username}.")
+        self._username_label.grid(row=6, columnspan=4)
+
         self._logout = ttk.Button(master=self._root, text="Kirjaudu ulos", command=lambda: self._logging_out())
-        self._logout.grid(row=6, columnspan=4)
+        self._logout.grid(row=7, columnspan=4)
 
     def _handle_button_click(self, button):
         entry_value = self._entry.get()
 
 ### ChatGPT:llä generoitu koodi alkaa
 
-        result = self._calculator_logic.handle_click(entry_value, button)
+        result = self._calculator_logic.handle_click(entry_value, button, self._username)
         
         self.update_entry(result)
 
@@ -107,3 +113,4 @@ class Calculator:
         self._multiply.destroy()
         self._divide.destroy()
         self._result.destroy()
+        self._username_label.destroy()
