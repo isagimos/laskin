@@ -35,14 +35,19 @@ class CalculatorLogic:
 
     def handle_click(self, entry_value, button):
 
-        # If button is digit it is added to the entry_value:
+        # At first the user cannot click an operator or "=" symbol or 0:
+        if entry_value == "":
+            print(button)
+            if button in self._operators or button == "=":
+                return entry_value
+            elif button == "0":
+                return entry_value
+
+        # If button is digit and != 0 it is added to the entry_value:
         if button.isdigit():
             return entry_value + button
 
-        # At first the user cannot click an operator or "=" symbol:
-        if entry_value == "":
-            if button in self._operators or button == "=":
-                return entry_value
+
             
         # If the user clicks an operand button, save the first operand and the operator:
         if button in self._operators:
