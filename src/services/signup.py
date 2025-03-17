@@ -1,4 +1,5 @@
 from tkinter import Tk, ttk
+from werkzeug.security import generate_password_hash
 
 class SignUp:
     def __init__(self, root):
@@ -30,6 +31,7 @@ class SignUp:
     
     def _add_username_and_password(self, username, password):
         with open("users.csv", "a") as f:
-            newuser = f"{username};{password}"
+            
+            newuser = f"{username};{generate_password_hash(password)}"
             f.write(newuser + "\n")
             return True
