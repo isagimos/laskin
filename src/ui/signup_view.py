@@ -1,8 +1,13 @@
 from tkinter import Tk, ttk
+from services.signup import SignUp
 
 class CreateAccount:
     def __init__(self, root):
         self._root = root
+
+        self._signup = SignUp(self._root)
+
+        self._errormessage = None
 
 
     def start(self):
@@ -34,6 +39,18 @@ class CreateAccount:
         ### tarkista onko käyttäjänimi uniikki ja täsmäävätkö salasanat,
         ### ja tallenna uusi käyttäjätunnus tiedostoon. palaa sitten login-näkymään
 
+        result = self._signup._create_account(self._username_entry.get(),
+                            self._password_entry.get(), self._password_entry2.get())
+        
+        if result != "Tunnus luotu":
+            try:
+                self._errormessage.destroy()
+            except:
+                pass
+            self._errormessage = ttk.Label(master=self._root, text=f"{result}")
+            self._errormessage.grid(row=4, columnspan=2)
+            return "Tunnusta ei luotu"
+
         from login_view import Login
         self._login = Login(self._root)
 
@@ -50,3 +67,7 @@ class CreateAccount:
         self._password_entry.destroy()
         self._password_entry2.destroy()
         self._signup_button.destroy()
+        try:
+            self._errormessage.destroy()
+        except:
+            pass
