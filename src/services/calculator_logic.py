@@ -57,14 +57,24 @@ class CalculatorLogic:
 
             return entry_value + button
         
-        # If the user clicks "=", save the second operand:
+        # If the user clicks "=", save the second operand, calculate and save to file:
         if button == "=":
             self._second_operand = entry_value.split(f"{self._operator}")[1]
             result = self.calculate(self._first_operand, self._second_operand, self._operator)
 
+
+
+
+### jatka tästä
+            with open("calculations.csv", "a") as f:
+                newrow = f"{self._first_operand};{self._operator};{self._second_operand}"
+                f.write(newrow + "\n")
+
             self._first_operand = None
             self._second_operand = None
             self._operator = None
+
+
 
             return result
     
