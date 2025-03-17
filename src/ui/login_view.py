@@ -46,9 +46,22 @@ class Login:
         self._username = username
         self._password = password
 
-        self._destroy_login_view()
+        from services.login import LoginCheck
 
-        self._calculator.start()
+        self._login_check = LoginCheck(self._root)
+
+
+        result = self._login_check._check_username_and_password(username, password)
+
+        if result:
+
+            self._destroy_login_view()
+
+            self._calculator.start()
+        
+        else:
+            self._error_label = ttk.Label(master=self._root, text="Väärä käyttäjätunnus tai salasana")
+            self._error_label.grid(row=4, columnspan=2)
 
     def _destroy_login_view(self):
         
@@ -57,8 +70,12 @@ class Login:
         self._password_entry.destroy()
         self._login_button.destroy()
         self._username_label.destroy()
+    # GitHub Copilotilla generoitu koodi päättyy        
         self._signup_button.destroy()
-    # GitHub Copilotilla generoitu koodi päättyy
+        try:
+            self._error_label.destroy()
+        except:
+            pass
 
     def _create_account(self):
 
