@@ -14,11 +14,11 @@ class TestCalculator(unittest.TestCase):
     def test_operators_are_determined_correctly(self):
         self.assertEqual(self.calculator._operators, ["+", "-", "*", "/"])
 
-    def test_at_first_clicking_equals_button_prints_nothing_to_screen(self):
+    def test_at_first_clicking_equals_button_is_not_added(self):
         return_value = self.calculator.handle_click("", "=")
         self.assertEqual(return_value, "")
     
-    def test_at_first_clicking_operator_button_prints_nothing_to_screen(self):
+    def test_at_first_clicking_operator_button_is_not_added(self):
         return_value = self.calculator.handle_click("", "+")
         self.assertEqual(return_value, "")
         return_value = self.calculator.handle_click("", "-")
@@ -38,7 +38,7 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.calculator._operator, "+")
         self.assertEqual(return_value, "111+")
 
-    def test_reclicking_operator_prints_nothing_to_screen(self):
+    def test_operand_is_not_added_if_there_is_already_one(self):
         self.calculator._operator = "+"
         return_value = self.calculator.handle_click("111+", "*")
         self.assertEqual(return_value, "111+")
