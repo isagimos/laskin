@@ -1,6 +1,6 @@
 ### Luokan UI suunnittelussa on hyödynnetty kurssimateriaalia: https://ohjelmistotekniikka-hy.github.io/python/tkinter
 
-from tkinter import Tk, ttk
+from tkinter import Tk, ttk, Text
 from services.calculator_logic import CalculatorLogic
 
 class Calculator:
@@ -11,6 +11,8 @@ class Calculator:
 
         self._calculator_logic = CalculatorLogic()
 
+        self._errormessage = False
+
     def start(self, username):
 
         self._username = username
@@ -18,6 +20,34 @@ class Calculator:
 
         self._entry.grid(row=0, column=0, columnspan=4, padx=5, pady=5)
 
+
+### ChatGPT:llä generoitu koodi alkaa
+        self._history_box = Text(master=self._root, height=10, width=30)
+        self._history_box.grid(row=1, column=5, rowspan=4, padx=5, pady=5)
+### ChatGPT:llä generoitu koodi päättyy
+
+
+###############################
+###Vie tämä omaan metodiin:::
+        calculations = self._fetch_history(self._username)
+
+
+
+
+### ChatGPT:llä generoitu koodi alkaa
+        self._history_box.delete("1.0", "end")
+
+        for calculation in calculations:
+            self._history_box.insert("end",
+                                     str(calculation[0]) +
+                                     str(calculation[1]) +
+                                     str(calculation[2]) +
+                                     str(calculation[3]) +
+                                     str(calculation[4]) + "\n")
+            
+########################################
+
+### ChatGPT:llä generoitu koodi päättyy
         self.add_numbers()
         self.add_operators_and_result()
 
@@ -28,7 +58,15 @@ class Calculator:
         self._logout = ttk.Button(master=self._root, text="Kirjaudu ulos", command=lambda: self._logging_out())
         self._logout.grid(row=7, columnspan=4)
 
+    def _fetch_history(self, username):
+        from services.fetch_history import FetchHistory
+
+        self._history = FetchHistory(self._root, username)
+        calculations = self._history._fetch_history()
+        return calculations
+
     def _handle_button_click(self, button):
+
         entry_value = self._entry.get()
 
 ### ChatGPT:llä generoitu koodi alkaa

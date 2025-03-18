@@ -34,10 +34,12 @@ class CalculatorLogic:
         self._operators = ["+", "-", "*", "/"]
 
     def handle_click(self, entry_value, button, username):
+        
+        if entry_value == "Nollalla ei voi jakaa":
+            entry_value = ""
 
         # At first the user cannot click an operator or "=" symbol or 0:
         if entry_value == "":
-            print(button)
             if button in self._operators or button == "=":
                 return entry_value
             elif button == "0":
@@ -68,7 +70,7 @@ class CalculatorLogic:
             result = self.calculate(self._first_operand, self._second_operand, self._operator)
 
             with open("calculations.csv", "a") as f:
-                newrow = f"{username};{self._first_operand};{self._operator};{self._second_operand}"
+                newrow = f"{username};{self._first_operand};{self._operator};{self._second_operand};=;{result}"
                 f.write(newrow + "\n")
 
             self._first_operand = None
