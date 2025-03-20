@@ -27,7 +27,7 @@ class TestSignup(unittest.TestCase):
             new_test_user = f"{self.username};{generate_password_hash(self.password1)}"
             f.write(new_test_user + "\n")
         
-        result = self.signup._check_if_unique(self.username)
+        result = self.signup._create_account(self.username, self.password1, self.password2)
 
         with open(file_path, "r", encoding="utf-8") as f:
             users = f.readlines()
@@ -36,4 +36,17 @@ class TestSignup(unittest.TestCase):
             for user in users:
                 f.write(user)
 
-        self.assertEqual(result, False)
+        self.assertEqual(result, "Tunnus on jo käytössä")
+
+    def test_signup_account_created_successfully(self):
+        result = self.signup._create_account(self.username, self.password1, self.password2)
+        
+        file_path = os.path.join("data", "users.csv")
+        with open(file_path, "r", encoding="utf-8") as f:
+            users = f.readlines()
+            users.pop()
+        with open(file_path, "w", encoding="utf-8") as f:
+            for user in users:
+                f.write(user)
+        
+        self.assertEqual(result, "Tunnus luotu")
