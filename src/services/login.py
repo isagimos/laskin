@@ -1,3 +1,4 @@
+import os
 from werkzeug.security import check_password_hash
 
 class LoginCheck:
@@ -6,7 +7,8 @@ class LoginCheck:
 
     def _check_username_and_password(self, username, password):
         try:
-            with open("users.csv", "r", encoding="utf-8") as f:
+            file_path = os.path.join("data", "users.csv")
+            with open(file_path, "r", encoding="utf-8") as f:
                 for row in f:
                     row = row.replace("\n", "")
                     info = row.split(";")

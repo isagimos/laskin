@@ -23,6 +23,7 @@ Selkeyden vuoksi en kommentoinut näitä muutoksia itse koodiin.
         
 """
 
+import os
 
 class CalculatorLogic:
     def __init__(self):
@@ -63,8 +64,9 @@ class CalculatorLogic:
             if self._second_operand == "":
                 return entry_value
             result = self.calculate(self._first_operand, self._second_operand, self._operator)
-
-            with open("calculations.csv", "a", encoding="utf-8") as f:
+            
+            file_path = os.path.join("data", "calculations.csv")
+            with open(file_path, "a", encoding="utf-8") as f:
                 newrow = f"{username};{self._first_operand};{self._operator};{self._second_operand};=;{result}"
                 f.write(newrow + "\n")
 

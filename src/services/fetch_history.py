@@ -1,3 +1,4 @@
+import os
 class FetchHistory:
     def __init__(self, root, username):
         self._root = root
@@ -6,7 +7,8 @@ class FetchHistory:
         self._calculations = []
     def _fetch_history(self):
         try:
-            with open("calculations.csv", "r", encoding="utf-8") as f:
+            file_path = os.path.join("data", "calculations.csv")
+            with open(file_path, "r", encoding="utf-8") as f:
                 for row in f:
                     row = row.replace("\n", "")
                     calculation = row.split(";")

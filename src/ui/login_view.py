@@ -53,8 +53,6 @@ class Login:
 
         result = self._login_check._check_username_and_password(username, password)
 
-        print(result)
-
         if result == True:
 
             self._destroy_login_view()

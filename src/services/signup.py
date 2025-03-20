@@ -1,3 +1,4 @@
+import os
 from werkzeug.security import generate_password_hash
 
 class SignUp:
@@ -16,8 +17,9 @@ class SignUp:
 
 
     def _check_if_unique(self, username):
-        try:   
-            with open("users.csv", "r", encoding="utf-8") as f:
+        try:
+            file_path = os.path.join("data", "users.csv")   
+            with open(file_path, "r", encoding="utf-8") as f:
                 for row in f:
                     row = row.replace("\n", "")
                     info = row.split(";")
@@ -29,7 +31,10 @@ class SignUp:
         except FileNotFoundError:
             return True
     def _add_username_and_password(self, username, password):
-        with open("users.csv", "a", encoding="utf-8") as f:      
+        ### ChatGPT:llä generoitu koodi alkaa
+        file_path = os.path.join("data", "users.csv")
+        with open(file_path, "a", encoding="utf-8") as f: 
+        ### ChatGPT:llä generoitu koodi päättyy     
             newuser = f"{username};{generate_password_hash(password)}"
             f.write(newuser + "\n")
             return True
