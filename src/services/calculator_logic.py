@@ -31,6 +31,7 @@ class CalculatorLogic:
         self._first_operand = None
         self._second_operand = None
         self._operator = None
+        self._first_operand_is_zero = False
 
         self._operators = ["+", "-", "*", "/"]
 
@@ -38,11 +39,9 @@ class CalculatorLogic:
         if entry_value == "Nollalla ei voi jakaa":
             entry_value = ""
 
-        # At first the user cannot click an operator or "=" symbol or 0:
+        # At first the user cannot click an operator or "=" symbol:
         if entry_value == "":
             if button in self._operators or button == "=":
-                return entry_value
-            if button == "0":
                 return entry_value
 
         # If button is digit and != 0 it is added to the entry_value:
