@@ -5,11 +5,14 @@ class FetchHistory:
 
         self._calculations = []
     def _fetch_history(self):
-        with open("calculations.csv", "r", encoding="utf-8") as f:
-            for row in f:
-                row = row.replace("\n", "")
-                calculation = row.split(";")
-                if calculation[0] == self._username:
-                    self._calculations.append(calculation[1:])
-        return self._calculations
-    
+        try:
+            with open("calculations.csv", "r", encoding="utf-8") as f:
+                for row in f:
+                    row = row.replace("\n", "")
+                    calculation = row.split(";")
+                    if calculation[0] == self._username:
+                        self._calculations.append(calculation[1:])
+            return self._calculations
+        except FileNotFoundError:
+            return self._calculations
+        

@@ -65,8 +65,7 @@ class CalculatorLogic:
             result = self.calculate(self._first_operand, self._second_operand, self._operator)
 
             with open("calculations.csv", "a", encoding="utf-8") as f:
-                newrow = f"{username};{self._first_operand};\
-                    {self._operator};{self._second_operand};=;{result}"
+                newrow = f"{username};{self._first_operand};{self._operator};{self._second_operand};=;{result}"
                 f.write(newrow + "\n")
 
             self._first_operand = None

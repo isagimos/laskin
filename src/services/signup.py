@@ -16,14 +16,17 @@ class SignUp:
 
 
     def _check_if_unique(self, username):
-        with open("users.csv", "r", encoding="utf-8") as f:
-            for row in f:
-                row = row.replace("\n", "")
-                info = row.split(";")
-                username_from_file = info[0]
+        try:   
+            with open("users.csv", "r", encoding="utf-8") as f:
+                for row in f:
+                    row = row.replace("\n", "")
+                    info = row.split(";")
+                    username_from_file = info[0]
 
-                if username == username_from_file:
-                    return False
+                    if username == username_from_file:
+                        return False
+                return True
+        except FileNotFoundError:
             return True
     def _add_username_and_password(self, username, password):
         with open("users.csv", "a", encoding="utf-8") as f:      
