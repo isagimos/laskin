@@ -5,6 +5,9 @@ class SignUp:
     def __init__(self, root):
         self._root = root
 
+        self.dir = "data"
+        self.file = "users.csv"
+
 
     def _create_account(self, username, password1, password2):
 
@@ -18,7 +21,7 @@ class SignUp:
 
     def _check_if_unique(self, username):
         try:
-            file_path = os.path.join("data", "users.csv")   
+            file_path = os.path.join(self.dir, self.file)
             with open(file_path, "r", encoding="utf-8") as f:
                 for row in f:
                     row = row.replace("\n", "")
@@ -33,8 +36,8 @@ class SignUp:
     def _add_username_and_password(self, username, password):
         ### ChatGPT:llä generoitu koodi alkaa
         file_path = os.path.join("data", "users.csv")
-        with open(file_path, "a", encoding="utf-8") as f: 
-        ### ChatGPT:llä generoitu koodi päättyy     
+        with open(file_path, "a", encoding="utf-8") as f:
+        ### ChatGPT:llä generoitu koodi päättyy
             newuser = f"{username};{generate_password_hash(password)}"
             f.write(newuser + "\n")
             return True

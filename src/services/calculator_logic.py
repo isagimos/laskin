@@ -49,7 +49,7 @@ class CalculatorLogic:
         if button.isdigit():
             return entry_value + button
         # If the user clicks an operand button, save the first operand and the operator:
-        if button in self._operators: 
+        if button in self._operators:
             # Return if the user has already clicked an operator button:
             if self._operator is not None:
                 return entry_value
@@ -64,10 +64,10 @@ class CalculatorLogic:
             if self._second_operand == "":
                 return entry_value
             result = self.calculate(self._first_operand, self._second_operand, self._operator)
-            
             file_path = os.path.join("data", "calculations.csv")
             with open(file_path, "a", encoding="utf-8") as f:
-                newrow = f"{username};{self._first_operand};{self._operator};{self._second_operand};=;{result}"
+                newrow = f"{username};{self._first_operand};{self._operator};"
+                newrow += f"{self._second_operand};=;{result}"
                 f.write(newrow + "\n")
 
             self._first_operand = None
