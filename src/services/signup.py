@@ -1,4 +1,3 @@
-from tkinter import Tk, ttk
 from werkzeug.security import generate_password_hash
 
 class SignUp:
@@ -12,14 +11,12 @@ class SignUp:
             if password1 == password2:
                 self._add_username_and_password(username, password1)
                 return "Tunnus luotu"
-            else:
-                return "Salasanat eivät täsmää"
-        else:
-            return "Tunnus on jo käytössä"
+            return "Salasanat eivät täsmää"
+        return "Tunnus on jo käytössä"
 
 
     def _check_if_unique(self, username):
-        with open("users.csv", "r") as f:
+        with open("users.csv", "r", encoding="utf-8") as f:
             for row in f:
                 row = row.replace("\n", "")
                 info = row.split(";")
@@ -28,10 +25,9 @@ class SignUp:
                 if username == username_from_file:
                     return False
             return True
-    
     def _add_username_and_password(self, username, password):
-        with open("users.csv", "a") as f:
-            
+        with open("users.csv", "a", encoding="utf-8") as f:      
             newuser = f"{username};{generate_password_hash(password)}"
             f.write(newuser + "\n")
             return True
+        
