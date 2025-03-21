@@ -31,13 +31,18 @@ class CalculatorLogic:
         self._first_operand = None
         self._second_operand = None
         self._operator = None
-        self.second_operand_is_zero = False
+
+        self._point_in_first_operand = False
+        self._point_in_second_operand = False
+
+
 
         self._operators = ["+", "-", "*", "/"]
 
     def handle_click(self, entry_value, button, username):
-        if entry_value == "Nollalla ei voi jakaa":
+        if entry_value == "Virhe":
             entry_value = ""
+            return button
 
         # At first the user cannot click an operator or "=" symbol:
         if entry_value == "":
@@ -54,6 +59,19 @@ class CalculatorLogic:
             
             return entry_value + button
         
+        if button == ".":
+            if self._first_operand == None:
+                if self._point_in_first_operand == False:
+                    self._point_in_first_operand = True
+                    return entry_value + button
+                
+            else:
+                if self._point_in_second_operand == False:
+                    self._point_in_second_operand = True
+                    return entry_value + button
+            
+            return entry_value
+        
 
 
         # If the user clicks an operand button, save the first operand and the operator:
@@ -65,6 +83,8 @@ class CalculatorLogic:
             self._operator = button
 
             return entry_value + button
+        
+
         # If the user clicks "=", save the second operand, calculate and save to file:
         if button == "=":
 
@@ -84,8 +104,11 @@ class CalculatorLogic:
             return result
     def calculate(self, first_operand, second_operand, operator):
 
-        first_operand = float(first_operand)
-        second_operand = float(second_operand)
+        try:
+            first_operand = float(first_operand)
+            second_operand = float(second_operand)
+        except ValueError:
+            return "Virhe"
 
         if operator == "+":
             return first_operand + second_operand
@@ -97,4 +120,4 @@ class CalculatorLogic:
             try:
                 return first_operand / second_operand
             except ZeroDivisionError:
-                return "Nollalla ei voi jakaa"
+                return "Virhe"
