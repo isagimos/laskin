@@ -36,9 +36,15 @@ class SignUp:
     def _add_username_and_password(self, username, password):
         ### ChatGPT:llä generoitu koodi alkaa
         file_path = os.path.join("data", "users.csv")
-        with open(file_path, "a", encoding="utf-8") as f:
+        try:
+            with open(file_path, "a", encoding="utf-8") as f:
+                newuser = f"{username};{generate_password_hash(password)}"
+                f.write(newuser + "\n")
+                return True
+        except FileNotFoundError:
+            with open(file_path, "w", encoding="utf-8") as f:
         ### ChatGPT:llä generoitu koodi päättyy
-            newuser = f"{username};{generate_password_hash(password)}"
-            f.write(newuser + "\n")
-            return True
+                newuser = f"{username};{generate_password_hash(password)}"
+                f.write(newuser + "\n")
+                return True
         
