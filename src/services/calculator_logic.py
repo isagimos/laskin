@@ -88,7 +88,17 @@ class CalculatorLogic:
         # If the user clicks "=", save the second operand, calculate and save to file:
         if button == "=":
 
-            self._second_operand = entry_value.split(f"{self._operator}")[1]
+            try:
+                self._second_operand = entry_value.split(f"{self._operator}")[1]
+            except IndexError:
+                self._first_operand = None
+                self._second_operand = None
+                self._operator = None
+
+                self._point_in_first_operand = False
+                self._point_in_second_operand = False
+                return "Virhe"
+            
             if self._second_operand == "":
                 return entry_value
             result = self.calculate(self._first_operand, self._second_operand, self._operator)
@@ -120,4 +130,10 @@ class CalculatorLogic:
             try:
                 return first_operand / second_operand
             except ZeroDivisionError:
+                self._first_operand = None
+                self._second_operand = None
+                self._operator = None
+
+                self._point_in_first_operand = False
+                self._point_in_second_operand = False
                 return "Virhe"
