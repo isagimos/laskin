@@ -1,5 +1,9 @@
 import os
+### ChatGPT:llä generoitu koodi alkaa
+file_path = "data/users.csv"
+os.makedirs(os.path.dirname(file_path), exist_ok=True)
 from werkzeug.security import generate_password_hash
+### ChatGPT:llä generoitu koodi päättyy
 
 class SignUp:
     def __init__(self, root):
