@@ -41,9 +41,7 @@ class Calculator:
             self._history_box.insert("end",
                                      str(calculation[0]) +
                                      str(calculation[1]) +
-                                     str(calculation[2]) +
-                                     str(calculation[3]) +
-                                     str(calculation[4]) + "\n")
+                                     str(calculation[2]) + "\n")
             
 ########################################
 
