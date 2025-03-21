@@ -21,31 +21,13 @@ class Calculator:
         self._entry.grid(row=0, column=0, columnspan=4, padx=5, pady=5)
 
 
-### ChatGPT:llä generoitu koodi alkaa
+        ### ChatGPT:llä generoitu koodi alkaa
         self._history_box = Text(master=self._root, height=10, width=30)
         self._history_box.grid(row=1, column=5, rowspan=4, padx=5, pady=5)
-### ChatGPT:llä generoitu koodi päättyy
+        self._history_box.config(state="disabled")
+        ### ChatGPT:llä generoitu koodi päättyy
 
-
-###############################
-###Vie tämä omaan metodiin:::
-        calculations = self._fetch_history(self._username)
-
-
-
-
-### ChatGPT:llä generoitu koodi alkaa
-        self._history_box.delete("1.0", "end")
-
-        for calculation in calculations:
-            self._history_box.insert("end",
-                                     str(calculation[0]) +
-                                     str(calculation[1]) +
-                                     str(calculation[2]) + "\n")
-            
-########################################
-
-### ChatGPT:llä generoitu koodi päättyy
+        self.print_calculations()
         self.add_numbers()
         self.add_operators_and_result()
 
@@ -55,6 +37,25 @@ class Calculator:
 
         self._logout = ttk.Button(master=self._root, text="Kirjaudu ulos", command=lambda: self._logging_out())
         self._logout.grid(row=7, columnspan=4)
+
+
+    def print_calculations(self):
+        calculations = self._fetch_history(self._username)
+
+        calculations.reverse()
+
+        ### ChatGPT:llä generoitu koodi alkaa
+        self._history_box.config(state="normal")
+        self._history_box.delete("1.0", "end")
+
+        for calculation in calculations:
+            self._history_box.insert("end",
+                                     str(calculation[0]) +
+                                     str(calculation[1]) +
+                                     str(calculation[2]) + "\n")
+
+        self._history_box.config(state="disabled")
+        ### ChatGPT:llä generoitu koodi päättyy        
 
     def _fetch_history(self, username):
         from services.fetch_history import FetchHistory
@@ -67,20 +68,23 @@ class Calculator:
 
         entry_value = self._entry.get()
 
-### ChatGPT:llä generoitu koodi alkaa
-
         result = self._calculator_logic.handle_click(entry_value, button, self._username)
         
         self.update_entry(result)
 
+        if button == "=":
+            self.print_calculations()   
+
+    ### ChatGPT:llä generoitu koodi alkaa
+
     def update_entry(self, update):
 
-        self._entry.config(state="normal")  # Tehdään kentästä muokattavissa oleva
-        self._entry.delete(0, "end")  # Tyhjennetään nykyinen sisältä
-        self._entry.insert(0, update)  # Lisätään uuden painikkeen arvo loppuun
-        self._entry.config(state="readonly")  # Asetetaan kenttä taas luettavaksi
+        self._entry.config(state="normal")
+        self._entry.delete(0, "end")
+        self._entry.insert(0, update)
+        self._entry.config(state="readonly")
 
-### ChatGPT:llä generoitu koodi päättyy
+    ### ChatGPT:llä generoitu koodi päättyy
 
     def _logging_out(self):
         from login_view import Login
@@ -152,3 +156,5 @@ class Calculator:
         self._divide.destroy()
         self._result.destroy()
         self._username_label.destroy()
+        self._decimalpoint.destroy()
+        self._history_box.destroy()
