@@ -73,7 +73,7 @@ class Calculator:
         self.update_entry(result)
 
         if button == "=":
-            self.print_calculations()   
+            self.print_calculations()
 
     ### ChatGPT:llä generoitu koodi alkaa
 
