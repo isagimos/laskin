@@ -31,7 +31,7 @@ class CalculatorLogic:
         self._first_operand = None
         self._second_operand = None
         self._operator = None
-        self._first_operand_is_zero = False
+        self.second_operand_is_zero = False
 
         self._operators = ["+", "-", "*", "/"]
 
@@ -44,9 +44,18 @@ class CalculatorLogic:
             if button in self._operators or button == "=":
                 return entry_value
 
-        # If button is digit and != 0 it is added to the entry_value:
         if button.isdigit():
+            if len(entry_value) == 1 and entry_value[0] == "0":
+                return button
+            
+            if self._first_operand != None:
+                if entry_value[-2] in self._operators and entry_value[-1] == "0":
+                    return entry_value[:-1] + button
+            
             return entry_value + button
+        
+
+
         # If the user clicks an operand button, save the first operand and the operator:
         if button in self._operators:
             # Return if the user has already clicked an operator button:
@@ -89,4 +98,3 @@ class CalculatorLogic:
                 return first_operand / second_operand
             except ZeroDivisionError:
                 return "Nollalla ei voi jakaa"
-            
