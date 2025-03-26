@@ -27,9 +27,6 @@ class SignUp:
             return "Salasanat eivät täsmää"
         return "Tunnus on jo käytössä"
     
-
-
-
     def _check_if_unique(self, username):
         try:
             file_path = os.path.join(self.dir, self.file)

@@ -22,6 +22,8 @@ class CreateAccount:
         self._password_entry = ttk.Entry(master=self._root)
         self._password_entry2 = ttk.Entry(master=self._root)
 
+        self._return_button = ttk.Button(master=self._root, text="Takaisin",
+                                        command=lambda: self._return_to_login_view())
 
         self._username_label.grid(row=0, column=0)
         self._password_label.grid(row=1, column=0)
@@ -33,6 +35,7 @@ class CreateAccount:
         self._password_entry2.grid(row=2, column=1)
 
         self._signup_button.grid(row=3, column=0, columnspan=2)
+        self._return_button.grid(row=4, column=0, columnspan=2)
     
     def _create_account(self):
 
@@ -67,7 +70,19 @@ class CreateAccount:
         self._password_entry.destroy()
         self._password_entry2.destroy()
         self._signup_button.destroy()
+        self._return_button.destroy()
         try:
             self._errormessage.destroy()
         except:
             pass
+
+    def _return_to_login_view(self):
+
+        self._destroy_signup_view()
+    
+        from login_view import Login
+        self._login = Login(self._root)
+
+        self._destroy_signup_view()
+
+        self._login.start()
