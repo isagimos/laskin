@@ -51,7 +51,7 @@ class CreateAccount:
             except:
                 pass
             self._errormessage = ttk.Label(master=self._root, text=f"{result}")
-            self._errormessage.grid(row=4, columnspan=2)
+            self._errormessage.grid(row=5, columnspan=2)
             return "Tunnusta ei luotu"
 
         from login_view import Login
