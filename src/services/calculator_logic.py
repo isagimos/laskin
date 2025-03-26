@@ -12,6 +12,9 @@ class CalculatorLogic:
             entry_value = ""
             return button
         
+        if button == "<-":
+            return entry_value[:-1]
+        
         # At first the user cannot click an operator or "=" symbol:
         if entry_value == "":
             if button in self._operators or button == "=":

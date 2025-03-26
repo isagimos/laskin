@@ -126,12 +126,14 @@ class Calculator:
         self._divide = ttk.Button(master=self._root, text="/", command=lambda: self._handle_button_click("/"))
         self._result = ttk.Button(master=self._root, text="=", command=lambda: self._handle_button_click("="))
         self._decimalpoint = ttk.Button(master=self._root, text=".", command=lambda: self._handle_button_click("."))
+        self._backspace = ttk.Button(master=self._root, text="<-", command=lambda: self._handle_button_click("<-"))
 
+        self._backspace.grid(row=5, column=4)
         self._plus.grid(row=1, column=4)
         self._minus.grid(row=2, column=4)
         self._multiply.grid(row=3, column=4)
         self._divide.grid(row=4, column=4)
-        self._result.grid(row=5, column=4)
+        self._result.grid(row=6, column=4)
         self._decimalpoint.grid(row=4, column=2)
     
     def destroy_calculator_view(self):
@@ -158,3 +160,4 @@ class Calculator:
         self._username_label.destroy()
         self._decimalpoint.destroy()
         self._history_box.destroy()
+        self._backspace.destroy()
