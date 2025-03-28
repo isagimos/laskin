@@ -28,3 +28,8 @@
 - **CalculatorLogic**-luokkaa muokattu olennaisesti
   - Nyt käyttäjän syötteet käsitellään ja lasketaan sympy-kirjaston avulla
 - Lisää testejä: luokka **TestSignup** tarkistaa, että sovelluslogiikan luokka **SignUp** toimii kuten pitää
+
+  ## Viikko 3
+- Testattu, että viime viikolla käyttöönotettu sympy-kirjasto **CalculatorLogic**-luokassa toimii
+- Laskimeen lisätty backspace- ja clear all -näppäimet
+- Lisätty käyttäjätunnuksen ja salasanan vähimmäispituuden tarkistus tunnusta luotaessa
