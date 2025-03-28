@@ -163,3 +163,4 @@ class Calculator:
         self._decimalpoint.destroy()
         self._history_box.destroy()
         self._backspace.destroy()
+        self._clear.destroy()
