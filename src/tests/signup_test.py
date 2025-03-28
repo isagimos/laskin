@@ -11,9 +11,9 @@ class TestSignup(unittest.TestCase):
         self.signup = SignUp(self)
 
         self.username = "test_username"
-        self.password1 = "abc"
-        self.password2 = "abc"
-        self.password3 = "123"
+        self.password1 = "abcabcabc"
+        self.password2 = "abcabcabc"
+        self.password3 = "123123123"
 
     def test_signup_different_passwords(self):
         result = self.signup._create_account(self.username, self.password1, self.password3)
