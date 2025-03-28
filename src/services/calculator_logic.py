@@ -9,8 +9,9 @@ class CalculatorLogic:
     
     def handle_click(self, entry_value, button, username):
         if entry_value == "Virhe":
-            entry_value = ""
-            return button
+            if button.isdigit():
+                return button
+            return ""
         
         if button == "<-":
             return entry_value[:-1]
@@ -48,7 +49,7 @@ class CalculatorLogic:
         if button == "=":
             try:                                                                #
                 result = sp.simplify(entry_value)                               #
-                if result == sp.zoo or result == sp.oo or result == -sp.oo:     #
+                if result == sp.zoo or result == sp.nan or result == sp.oo or result == -sp.oo:     #
                     result = "Virhe"                                            #
                                                                                 #
                 result = float(result)                                          #
