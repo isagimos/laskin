@@ -8,6 +8,9 @@ class CalculatorLogic:
         self._operators = ["+", "-", "*", "/"]
     
     def handle_click(self, entry_value, button, username):
+        if button == "C":
+            return ""
+        
         if entry_value == "Virhe":
             if button.isdigit():
                 return button
