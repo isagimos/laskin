@@ -14,4 +14,5 @@
 | 24.3. | 1 | testaus, virheellisten syötteiden käsittely |
 | 26.3. | 1 | backspace laskimeen, tunnuksen ja salasanan vähimmäispituuden tarkistus |
 | 28.3. | 2 | käyttöliittymän testaus, virheiden käsittely, clear-painikkeen lisäys, koodin siistiminen pylintillä |
+| 31.3. | 0,5 | readmen päivitys, testattu että sovellus toimii Cubbli Linuxilla |
 | yhteensä | 35 |
