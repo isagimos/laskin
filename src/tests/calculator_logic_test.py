@@ -50,3 +50,19 @@ class TestCalculator(unittest.TestCase):
     def test_operator_not_accepted_at_start(self):
         return_value = self.calculator.handle_click("", "/", self.username)
         self.assertEqual(return_value, "")
+
+    def test_comma(self):
+        return_value = self.calculator.handle_click(".", ".", self.username)
+        self.assertEqual(return_value, ".")
+        return_value = self.calculator.handle_click("", ".", self.username)
+        self.assertEqual(return_value, ".")
+
+    def test_clear(self):
+        return_value = self.calculator.handle_click("3*4-322.87/28", "C", self.username)
+        self.assertEqual(return_value, "")
+
+    def test_error_message(self):
+        return_value = self.calculator.handle_click("Virhe", "123", self.username)
+        self.assertEqual(return_value, "123")
+        return_value = self.calculator.handle_click("Virhe", "/", self.username)
+        self.assertEqual(return_value, "")

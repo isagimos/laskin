@@ -84,6 +84,8 @@ class CalculatorLogic:
             plt.title(f"f(x) = {function}")
             plt.grid(True)
             plt.show()
+            return True
         except Exception as e:
             messagebox.showerror("Virhe", "Virheellinen syöte")
+            return False
     ### ChatGPT:llä generoitu koodi päättyy
