@@ -1,5 +1,8 @@
 import os
 import sympy as sp
+import matplotlib.pyplot as plt
+import numpy as np
+from tkinter import messagebox
 
 class CalculatorLogic:
     def __init__(self):
@@ -70,4 +73,17 @@ class CalculatorLogic:
                 return result                                                   #
 
         return entry_value + button
-### ChatGPT:llä generoitu koodi päättyy
+
+    ### ChatGPT:llä generoitu koodi alkaa
+    def _draw(self, function):
+
+        x = np.linspace(-10, 10, 400)
+        try:
+            y = eval(function, {"x": x, "sin": np.sin, "cos": np.cos, "exp": np.exp})
+            plt.plot(x, y)
+            plt.title(f"f(x) = {function}")
+            plt.grid(True)
+            plt.show()
+        except Exception as e:
+            messagebox.showerror("Virhe", "Virheellinen syöte")
+    ### ChatGPT:llä generoitu koodi päättyy
