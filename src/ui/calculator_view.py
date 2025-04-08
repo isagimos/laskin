@@ -182,3 +182,7 @@ class Calculator:
         self._history_box.destroy()
         self._backspace.destroy()
         self._clear.destroy()
+
+        self._draw_function.destroy()
+        self._function.destroy()
+        self._draw_button.destroy()
