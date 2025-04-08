@@ -8,7 +8,7 @@ Tavoitteena on koodata **laskin**, jossa käyttäjä pystyy *kirjautumaan sisä�
 - [Työaikakirjanpito](https://github.com/isagimos/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 - [Vaatimusmäärittely](https://github.com/isagimos/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 - [Changelog](https://github.com/isagimos/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
-
+- [Arkkitehtuuri](https://github.com/isagimos/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
 ## Sovelluksen käyttöönotto
 
