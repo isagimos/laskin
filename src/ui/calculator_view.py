@@ -20,11 +20,27 @@ class Calculator:
 
         self._entry.grid(row=0, column=0, columnspan=4, padx=5, pady=5)
 
+        self._draw_function = ttk.Label(master=self._root,
+                                         text="Anna piirrettävä funktio:")
+
+        self._draw_function.grid(row=8, column=4, columnspan=4)
 
         ### ChatGPT:llä generoitu koodi alkaa
+
+        self._function = ttk.Entry(master=self._root, width=30)
+        self._function.grid(row=9, column=4, columnspan=4)
+
+        self._draw_button = ttk.Button(master=self._root, text="Piirrä funktio", command=lambda: self._draw_function())
+
+        self._draw_button.grid(row=10, column=4, columnspan=4)
+
+
+
+
         self._history_box = Text(master=self._root, height=10, width=30)
         self._history_box.grid(row=1, column=5, rowspan=4, padx=5, pady=5)
         self._history_box.config(state="disabled")
+
         ### ChatGPT:llä generoitu koodi päättyy
 
         self.print_calculations()
