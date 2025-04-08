@@ -1,3 +1,5 @@
+Kaavio sovelluslogiikan luokista ja niiden suhteista toisiinsa:
+
 ```mermaid
  classDiagram
       SignUp --> Login
