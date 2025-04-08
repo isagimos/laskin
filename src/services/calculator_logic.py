@@ -1,8 +1,8 @@
 import os
+from tkinter import messagebox
 import sympy as sp
 import matplotlib.pyplot as plt
 import numpy as np
-from tkinter import messagebox
 
 class CalculatorLogic:
     def __init__(self):
@@ -85,7 +85,7 @@ class CalculatorLogic:
             plt.grid(True)
             plt.show()
             return True
-        except Exception as e:
+        except (SyntaxError, ValueError, NameError):
             messagebox.showerror("Virhe", "Virheellinen syöte")
             return False
     ### ChatGPT:llä generoitu koodi päättyy

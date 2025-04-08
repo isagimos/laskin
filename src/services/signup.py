@@ -1,8 +1,8 @@
 import os
+from werkzeug.security import generate_password_hash
 ### ChatGPT:llä generoitu koodi alkaa
 file_path = "data/users.csv"
 os.makedirs(os.path.dirname(file_path), exist_ok=True)
-from werkzeug.security import generate_password_hash
 ### ChatGPT:llä generoitu koodi päättyy
 
 class SignUp:
@@ -26,7 +26,7 @@ class SignUp:
                 return "Tunnus luotu"
             return "Salasanat eivät täsmää"
         return "Tunnus on jo käytössä"
-    
+
     def _check_if_unique(self, username):
         try:
             file_path = os.path.join(self.dir, self.file)
@@ -55,7 +55,7 @@ class SignUp:
                 newuser = f"{username};{generate_password_hash(password)}"
                 f.write(newuser + "\n")
                 return True
-    
+
     def _check_username_length(self, username):
         if len(username) < 3:
             return False
