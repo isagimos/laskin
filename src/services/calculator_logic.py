@@ -79,7 +79,8 @@ class CalculatorLogic:
 
         x = np.linspace(-10, 10, 400)
         try:
-            y = eval(function, {"x": x, "sin": np.sin, "cos": np.cos, "exp": np.exp})
+            y = eval(function, {"x": x, "sin": np.sin, "cos": np.cos,
+                                "tan": np.tan, "exp": np.exp})
             plt.plot(x, y)
             plt.title(f"f(x) = {function}")
             plt.grid(True)

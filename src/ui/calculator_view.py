@@ -1,6 +1,6 @@
 ### Luokan UI suunnittelussa on hyödynnetty kurssimateriaalia: https://ohjelmistotekniikka-hy.github.io/python/tkinter
 
-from tkinter import Tk, ttk, Text, messagebox
+from tkinter import Tk, ttk, Text, messagebox, Toplevel
 from services.calculator_logic import CalculatorLogic
 import matplotlib.pyplot as plt
 import numpy as np
@@ -32,7 +32,7 @@ class Calculator:
         self._function = ttk.Entry(master=self._root, width=30)
         self._function.grid(row=9, column=4, columnspan=4)
 
-        self._draw_button = ttk.Button(master=self._root, text="Piirrä funktio", command=lambda: self._draw())
+        self._draw_button = ttk.Button(master=self._root, text="Piirrä funktion kuvaaja", command=lambda: self._draw())
 
         self._draw_button.grid(row=10, column=4, columnspan=4)
 
@@ -41,6 +41,10 @@ class Calculator:
         self._history_box.config(state="disabled")
 
         ### ChatGPT:llä generoitu koodi päättyy
+
+        self._instructions = ttk.Button(master=self._root, text="Näytä ohje", command=lambda: self.show_instructions())
+
+        self._instructions.grid(row=11, column=4, columnspan=4)
 
         self.print_calculations()
         self.add_numbers()
@@ -52,6 +56,24 @@ class Calculator:
 
         self._logout = ttk.Button(master=self._root, text="Kirjaudu ulos", command=lambda: self._logging_out())
         self._logout.grid(row=7, columnspan=4)
+
+    ### ChatGPT:llä generoitu koodi alkaa
+    def show_instructions(self):
+        
+        instructions_window = Toplevel(self._root)
+        instructions_window.title("Funktion piirtäminen")
+        instructions_window.geometry("400x200")
+        
+        instruction_text = (
+            "- Potenssifunktio x² annetaan muodossa x**2\n"
+            "- Trigonometriset funktiot: sin(x), cos(x), tan(x)\n"
+            "- Eksponenttifunktio e^x: exp(x)\n\n"
+            "Esimerkkifunktio: -(x-4)**3+x**2-sin(x)+exp(x)"
+        )
+        
+        instructions_label = ttk.Label(instructions_window, text=instruction_text, justify="left")
+        instructions_label.grid(row=12, padx=10, pady=10)
+    ### ChatGPT:llä generoitu koodi päättyy
 
     def _draw(self):
         function = self._function.get()
@@ -186,3 +208,4 @@ class Calculator:
         self._draw_function.destroy()
         self._function.destroy()
         self._draw_button.destroy()
+        self._instructions.destroy()
