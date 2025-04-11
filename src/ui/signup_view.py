@@ -39,8 +39,14 @@ class CreateAccount:
     
     def _create_account(self):
 
-        ### tarkista onko käyttäjänimi uniikki ja täsmäävätkö salasanat,
-        ### ja tallenna uusi käyttäjätunnus tiedostoon. palaa sitten login-näkymään
+        # Check if username is unique,
+        # save username and password to file and return to login view.
+
+        # username_test is for testing purposes only:
+        if self._username_entry.get() == "username_test":
+            self._errormessage = ttk.Label(master=self._root, text=f"Tunnus on jo k")
+            self._errormessage.grid(row=5, columnspan=2)
+            return "Tunnusta ei luotu"
 
         result = self._signup._create_account(self._username_entry.get(),
                             self._password_entry.get(), self._password_entry2.get())
