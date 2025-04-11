@@ -16,4 +16,5 @@
 | 28.3. | 2 | käyttöliittymän testaus, virheiden käsittely, clear-painikkeen lisäys, koodin siistiminen pylintillä |
 | 31.3. | 0,5 | readmen päivitys, testattu että sovellus toimii Cubbli Linuxilla |
 | 8.4. | 2,5 | lisätty mahdollisuus funktion kuvaajan piirtämiseen, lisätty testikattavuutta, testattu Cubbli Linuxilla |
-| yhteensä | 38 |
+| 11.4. | 3 | funktion piirtämisen ohjeen lisäys, testikattavuuden lisääminen, epäonnistunut yritys jakaa koodia pienempiin metodeihin luokassa CalculatorLogic |
+| yhteensä | 41 |
