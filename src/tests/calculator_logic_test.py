@@ -66,3 +66,7 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(return_value, "123")
         return_value = self.calculator.handle_click("Virhe", "/", self.username)
         self.assertEqual(return_value, "")
+
+    def test_backspace_button(self):
+        return_value = self.calculator.handle_click("1+2", "<-", self.username)
+        self.assertEqual(return_value, "1+")

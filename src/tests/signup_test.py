@@ -11,6 +11,8 @@ class TestSignup(unittest.TestCase):
         self.signup = SignUp(self)
 
         self.username = "test_username"
+        self.username2 = "a"
+
         self.password1 = "abcabcabc"
         self.password2 = "abcabcabc"
         self.password3 = "123123123"
@@ -50,3 +52,11 @@ class TestSignup(unittest.TestCase):
                 f.write(user)
         
         self.assertEqual(result, "Tunnus luotu")
+    
+    def test_username_length(self):
+        result = self.signup._create_account(self.username2, self.password1, self.password2)
+        self.assertEqual(result, "Tunnuksen vähimmäispituus on 3 merkkiä")
+    
+    def test_password_length(self):
+        result = self.signup._create_account(self.username, "123", "123")
+        self.assertEqual(result, "Salasanan vähimmäispituus on 8 merkkiä")
