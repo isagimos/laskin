@@ -44,7 +44,7 @@ class CreateAccount:
 
         # username_test is for testing purposes only:
         if self._username_entry.get() == "username_test":
-            self._errormessage = ttk.Label(master=self._root, text=f"Tunnus on jo k")
+            self._errormessage = ttk.Label(master=self._root, text=f"Tunnus on jo käytössä")
             self._errormessage.grid(row=5, columnspan=2)
             return "Tunnusta ei luotu"
 

@@ -30,7 +30,6 @@ class CalculatorLogic:
         if button.isdigit():
             if entry_value == "0":
                 return button
-            #if len(entry_value) == 1 and entry_value[-1] == "0":
             try:
                 if entry_value[-1] == "0" and entry_value[-2] in self._operators:
                     return entry_value[:-1] + button
