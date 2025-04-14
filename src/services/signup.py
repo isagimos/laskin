@@ -1,9 +1,5 @@
 import os
 from werkzeug.security import generate_password_hash
-### ChatGPT:llä generoitu koodi alkaa
-file_path = "data/users.csv"
-os.makedirs(os.path.dirname(file_path), exist_ok=True)
-### ChatGPT:llä generoitu koodi päättyy
 
 class SignUp:
     def __init__(self, root):
@@ -11,6 +7,12 @@ class SignUp:
 
         self.dir = "data"
         self.file = "users.csv"
+
+        ### ChatGPT:llä generoitu koodi alkaa
+        self.file_path = "data/users.csv"
+        os.makedirs(os.path.dirname(self.file_path), exist_ok=True)
+        ### ChatGPT:llä generoitu koodi päättyy
+
 
 
     def _create_account(self, username, password1, password2):
@@ -29,8 +31,8 @@ class SignUp:
 
     def _check_if_unique(self, username):
         try:
-            file_path = os.path.join(self.dir, self.file)
-            with open(file_path, "r", encoding="utf-8") as f:
+            self.file_path = os.path.join(self.dir, self.file)
+            with open(self.file_path, "r", encoding="utf-8") as f:
                 for row in f:
                     row = row.replace("\n", "")
                     info = row.split(";")
@@ -43,14 +45,14 @@ class SignUp:
             return True
     def _add_username_and_password(self, username, password):
         ### ChatGPT:llä generoitu koodi alkaa
-        file_path = os.path.join("data", "users.csv")
+        self.file_path = os.path.join("data", "users.csv")
         try:
-            with open(file_path, "a", encoding="utf-8") as f:
+            with open(self.file_path, "a", encoding="utf-8") as f:
                 newuser = f"{username};{generate_password_hash(password)}"
                 f.write(newuser + "\n")
                 return True
         except FileNotFoundError:
-            with open(file_path, "w", encoding="utf-8") as f:
+            with open(self.file_path, "w", encoding="utf-8") as f:
         ### ChatGPT:llä generoitu koodi päättyy
                 newuser = f"{username};{generate_password_hash(password)}"
                 f.write(newuser + "\n")
