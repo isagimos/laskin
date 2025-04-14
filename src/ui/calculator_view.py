@@ -67,7 +67,9 @@ class Calculator:
         instruction_text = (
             "- Potenssifunktio x² annetaan muodossa x**2\n"
             "- Trigonometriset funktiot: sin(x), cos(x), tan(x)\n"
-            "- Eksponenttifunktio e^x: exp(x)\n\n"
+            "- Eksponenttifunktio e^x: exp(x)\n"
+            "- Neliöjuuri: sqrt(x)\n"
+            "- Logaritmi: log(x)\n\n"
             "Esimerkkifunktio: -(x-4)**3+x**2-sin(x)+exp(x)"
         )
         

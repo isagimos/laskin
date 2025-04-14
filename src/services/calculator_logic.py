@@ -84,7 +84,7 @@ class CalculatorLogic:
             plt.grid(True)
             plt.show()
             return True
-        except (SyntaxError, ValueError, NameError, KeyError):
+        except (SyntaxError, TypeError, ValueError, NameError, KeyError):
             messagebox.showerror("Virhe", "Virheellinen syöte")
             return False
     ### ChatGPT:llä generoitu koodi päättyy
