@@ -3,6 +3,7 @@ from tkinter import messagebox
 import sympy as sp
 import matplotlib.pyplot as plt
 import numpy as np
+import numexpr as ne
 
 class CalculatorLogic:
     def __init__(self):
@@ -75,17 +76,15 @@ class CalculatorLogic:
 
     ### ChatGPT:llä generoitu koodi alkaa
     def _draw(self, function):
-
         x = np.linspace(-10, 10, 400)
         try:
-            y = eval(function, {"x": x, "sin": np.sin, "cos": np.cos,
-                                "tan": np.tan, "exp": np.exp})
+            y = ne.evaluate(function, local_dict={"x": x})
             plt.plot(x, y)
             plt.title(f"f(x) = {function}")
             plt.grid(True)
             plt.show()
             return True
-        except (SyntaxError, ValueError, NameError):
+        except (SyntaxError, ValueError, NameError, KeyError):
             messagebox.showerror("Virhe", "Virheellinen syöte")
             return False
     ### ChatGPT:llä generoitu koodi päättyy
