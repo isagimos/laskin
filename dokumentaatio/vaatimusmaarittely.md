@@ -30,6 +30,7 @@ Kaikilla sovelluksen käyttäjillä on sama rooli. Admin-käyttäjiä ei tässä
 - ✅ Tulos-painike ilmoittaa käyttäjälle laskutoimituksen lopputuloksen ja tallentaa tuloksen tiedostoon
 - ✅ Käyttäjä näkee historian tekemistään laskutoimituksista
 - ✅ Laskin piirtää kuvaajan käyttäjän syöttämästä funktiosta
+    - ✅ Käyttäjä näkee halutessaan ohjeen funktion piirtämistä varten
 
 ## Sovelluksen jatkokehitys
 
