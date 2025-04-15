@@ -38,3 +38,6 @@
 - Käyttäjä pystyy piirtämään funktion kuvaajan
   - Kuvaajan piirtäminen toteutettu matplotlibillä **CalculatorLogic**-luokkaan
 - Testattu mm., että laskin jatkaa toimintaansa, jos edellinen laskenta päättynyt ilmoitukseen "Virhe"
+
+## Viikko 5
+- Laskimessa painike "Näytä ohje", jota klikkaamalla käyttäjä näkee ohjeet funktion kuvaajan piirtämiseen
