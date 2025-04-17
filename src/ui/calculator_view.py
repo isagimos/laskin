@@ -104,8 +104,7 @@ class Calculator:
 
     def _fetch_history(self, username):
 
-        calculations = self._calculations.fetch_history(username)
-        return calculations
+        return self._calculations.fetch_history(username)
 
     def _handle_button_click(self, button):
 

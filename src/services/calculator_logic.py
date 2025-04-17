@@ -1,13 +1,15 @@
-import os
 from tkinter import messagebox
 import sympy as sp
 import matplotlib.pyplot as plt
 import numpy as np
 import numexpr as ne
+from repositories.calculations_repository import CalculationsRepository
 
 class CalculatorLogic:
     def __init__(self):
         self._root = self
+
+        self._calculations = CalculationsRepository(self._root)
 
         self._operators = ["+", "-", "*", "/"]
 
@@ -50,31 +52,27 @@ class CalculatorLogic:
             except IndexError:
                 return button
 
-### Tästä etenpäin ChatGPT:llä generoitua koodia riveillä, jotka merkitty #:
+    ### ChatGPT:llä generoitu koodi alkaa
         if button == "=":
-            try:                                                                #
-                result = sp.simplify(entry_value)                               #
-                if result in {sp.zoo, sp.nan, sp.oo, -sp.oo}:                   #
-                    result = "Virhe"                                            #
-                                                                                #
-                result = float(result)                                          #
+            try:
+                result = sp.simplify(entry_value)
+                if result in {sp.zoo, sp.nan, sp.oo, -sp.oo}:
+                    result = "Virhe"
 
-            except (SyntaxError, ValueError):                                   #
-                result = "Virhe"                                                #
+                result = float(result)
 
-            file_path = os.path.join("data", "calculations.csv")
-            with open(file_path, "a", encoding="utf-8") as f:
-                newrow = f"{username};{entry_value};=;{result};"
-                f.write(newrow + "\n")
+            except (SyntaxError, ValueError):
+                result = "Virhe"
 
-            try:                                                                #
-                return f"{result:.10g}"                                         #
-            except ValueError:                                                  #
-                return result                                                   #
+            self._calculations.add_calculation(username, entry_value, result)
+
+            try:
+                return f"{result:.10g}"
+            except ValueError:
+                return result
 
         return entry_value + button
 
-    ### ChatGPT:llä generoitu koodi alkaa
     def _draw(self, function):
         x = np.linspace(-10, 10, 400)
         try:

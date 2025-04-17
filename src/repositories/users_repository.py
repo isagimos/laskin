@@ -30,7 +30,6 @@ class UsersRepository:
         return "Väärä käyttäjätunnus tai salasana"
 
     def check_username(self, username):
-
         try:
             self.file_path = os.path.join(self.dir, self.file)
             with open(self.file_path, "r", encoding="utf-8") as f:

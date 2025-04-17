@@ -12,9 +12,8 @@ class CalculationsRepository:
         os.makedirs(os.path.dirname(self.file_path), exist_ok=True)
         ### ChatGPT:llä generoitu koodi päättyy
 
-        self._calculations = []
-
     def fetch_history(self, username):
+        calculations = []
         try:
             file_path = os.path.join("data", "calculations.csv")
             with open(file_path, "r", encoding="utf-8") as f:
@@ -22,8 +21,15 @@ class CalculationsRepository:
                     row = row.replace("\n", "")
                     calculation = row.split(";")
                     if calculation[0] == username:
-                        self._calculations.append(calculation[1:])
-            return self._calculations
+                        calculations.append(calculation[1:])
+            return calculations
         except FileNotFoundError:
-            return self._calculations
-        
+            return calculations
+
+    def add_calculation(self, username, entry_value, result):
+
+        file_path = os.path.join("data", "calculations.csv")
+        with open(file_path, "a", encoding="utf-8") as f:
+            newrow = f"{username};{entry_value};=;{result};"
+            f.write(newrow + "\n")
+        return True
