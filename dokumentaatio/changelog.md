@@ -41,3 +41,6 @@
 
 ## Viikko 5
 - Laskimessa painike "Näytä ohje", jota klikkaamalla käyttäjä näkee ohjeet funktion kuvaajan piirtämiseen
+
+## Viikko 6
+- Tietokannan lukeminen ja kirjoittaminen toteutui aiemmin sovelluslogiikassa. Nyt tehty repository-mallin mukainen toteutus. Luotu hakemisto repositories, jonne tehty luokat **CalculationsRepostiory** ja **UsersRepository**.
