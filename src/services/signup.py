@@ -1,19 +1,9 @@
-import os
-from werkzeug.security import generate_password_hash
+from repositories.users_repository import UsersRepository
 
 class SignUp:
     def __init__(self, root):
         self._root = root
-
-        self.dir = "data"
-        self.file = "users.csv"
-
-        ### ChatGPT:llä generoitu koodi alkaa
-        self.file_path = "data/users.csv"
-        os.makedirs(os.path.dirname(self.file_path), exist_ok=True)
-        ### ChatGPT:llä generoitu koodi päättyy
-
-
+        self._users_repository = UsersRepository(self._root)
 
     def _create_account(self, username, password1, password2):
 
@@ -30,33 +20,12 @@ class SignUp:
         return "Tunnus on jo käytössä"
 
     def _check_if_unique(self, username):
-        try:
-            self.file_path = os.path.join(self.dir, self.file)
-            with open(self.file_path, "r", encoding="utf-8") as f:
-                for row in f:
-                    row = row.replace("\n", "")
-                    info = row.split(";")
-                    username_from_file = info[0]
 
-                    if username == username_from_file:
-                        return False
-                return True
-        except FileNotFoundError:
-            return True
+        return self._users_repository.check_username(username)
+
     def _add_username_and_password(self, username, password):
-        ### ChatGPT:llä generoitu koodi alkaa
-        self.file_path = os.path.join("data", "users.csv")
-        try:
-            with open(self.file_path, "a", encoding="utf-8") as f:
-                newuser = f"{username};{generate_password_hash(password)}"
-                f.write(newuser + "\n")
-                return True
-        except FileNotFoundError:
-            with open(self.file_path, "w", encoding="utf-8") as f:
-        ### ChatGPT:llä generoitu koodi päättyy
-                newuser = f"{username};{generate_password_hash(password)}"
-                f.write(newuser + "\n")
-                return True
+
+        return self._users_repository.add_username_and_password(username, password)
 
     def _check_username_length(self, username):
         if len(username) < 3:

@@ -46,12 +46,12 @@ class Login:
         self._username = username
         self._password = password
 
-        from services.login import LoginCheck
+        from repositories.users_repository import UsersRepository
 
-        self._login_check = LoginCheck(self._root)
+        self._login_check = UsersRepository(self._root)
 
 
-        result = self._login_check._check_username_and_password(username, password)
+        result = self._login_check.check_username_and_password(username, password)
 
         if result == True:
 

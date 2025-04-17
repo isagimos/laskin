@@ -4,6 +4,8 @@ from tkinter import Tk, ttk, Text, messagebox, Toplevel
 from services.calculator_logic import CalculatorLogic
 import matplotlib.pyplot as plt
 import numpy as np
+from repositories.calculations_repository import CalculationsRepository
+
 
 class Calculator:
     def __init__(self, root):
@@ -12,6 +14,7 @@ class Calculator:
         self._entry = None
 
         self._calculator_logic = CalculatorLogic()
+        self._calculations = CalculationsRepository(self._root)
 
         self._errormessage = False
 
@@ -100,10 +103,8 @@ class Calculator:
         ### ChatGPT:llä generoitu koodi päättyy        
 
     def _fetch_history(self, username):
-        from services.fetch_history import FetchHistory
 
-        self._history = FetchHistory(self._root, username)
-        calculations = self._history._fetch_history()
+        calculations = self._calculations.fetch_history(username)
         return calculations
 
     def _handle_button_click(self, button):
