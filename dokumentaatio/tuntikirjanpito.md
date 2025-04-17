@@ -18,4 +18,5 @@
 | 8.4. | 2,5 | lisätty mahdollisuus funktion kuvaajan piirtämiseen, lisätty testikattavuutta, testattu Cubbli Linuxilla |
 | 11.4. | 3 | funktion piirtämisen ohjeen lisäys, testikattavuuden lisääminen, kokeilu koodin jakamiseksi pienempiin metodeihin luokassa CalculatorLogic |
 | 14.4. | 1 | koodin laadun parantaminen karsimalla pylint-virheitä |
-| yhteensä | 42 |
+| 17.4. | 2 | tiedostojen käsittelyn siirto sovelluslogiikasta repositories-hakemistoon |
+| yhteensä | 44 |
