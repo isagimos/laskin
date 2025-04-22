@@ -19,4 +19,5 @@
 | 11.4. | 3 | funktion piirtämisen ohjeen lisäys, testikattavuuden lisääminen, kokeilu koodin jakamiseksi pienempiin metodeihin luokassa CalculatorLogic |
 | 14.4. | 1 | koodin laadun parantaminen karsimalla pylint-virheitä |
 | 17.4. | 2 | tiedostojen käsittelyn siirto sovelluslogiikasta repositories-hakemistoon |
-| yhteensä | 44 |
+| 22.4. | 1 | sekvenssikaavio käyttäjätunnuksen luomisesta |
+| yhteensä | 45 |
