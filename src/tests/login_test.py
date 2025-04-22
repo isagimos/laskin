@@ -14,5 +14,5 @@ class TestLogin(unittest.TestCase):
         self.password = "abcabcabc"
     
     def test_login(self):
-        result = self.login._check_username_and_password(self.username, self.password)
+        result = self.login.check_username_and_password(self.username, self.password)
         self.assertEqual(result, "Väärä käyttäjätunnus tai salasana")
