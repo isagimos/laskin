@@ -1,9 +1,20 @@
-from tkinter import Tk, ttk
+from tkinter import ttk
 from calculator_view import Calculator
 from signup_view import CreateAccount
 
 class Login:
+    """A user interface class. Shows the log in view at launchup of the application.
+    """
+
     def __init__(self, root):
+        """The constructor of the class.
+
+        Args:
+            username: Username of current user (None at start)
+            password: Password of curren user (None at start)
+            _calculator: class Calculator from calculator_view.py
+            _signup: class CreateAccount from signup_view.py
+        """
         self._root = root
 
         self._username = None
@@ -14,6 +25,8 @@ class Login:
         self._signup = CreateAccount(self._root)
     
     def start(self):
+        """Shows the login view of the application.
+        """
 
         # GitHub Copilotin vinkistä tehty muuttujista instanssimuuttujia lisäämällä self._-etuliite
 
@@ -42,6 +55,12 @@ class Login:
 
     # GitHub Copilotilla generoitu koodi alkaa
     def _handle_login(self, username, password):
+        """This method is called when a user tries to log in.
+
+        Args:
+            username: Username entered by the user.
+            password: Password entered by the user.
+        """
 
         self._username = username
         self._password = password
@@ -68,6 +87,9 @@ class Login:
             self._error_label.grid(row=4, columnspan=2)
 
     def _destroy_login_view(self):
+        """If user is successfully logged in,
+        this method destroys the current login view of the application.
+        """
         
         self._password_label.destroy()
         self._username_entry.destroy()
@@ -82,6 +104,8 @@ class Login:
             pass
 
     def _create_account(self):
+        """Destroys the current login view and show signup view.
+        """
 
         self._destroy_login_view()
 
