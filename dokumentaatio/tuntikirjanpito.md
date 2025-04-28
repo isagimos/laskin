@@ -20,4 +20,5 @@
 | 14.4. | 1 | koodin laadun parantaminen karsimalla pylint-virheitä |
 | 17.4. | 2 | tiedostojen käsittelyn siirto sovelluslogiikasta repositories-hakemistoon |
 | 22.4. | 1 | sekvenssikaavio käyttäjätunnuksen luomisesta |
-| yhteensä | 45 |
+| 28.3. | 2 | koodin docstring-dokumentaatio |
+| yhteensä | 47 |
