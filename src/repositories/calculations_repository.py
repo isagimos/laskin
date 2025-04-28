@@ -1,6 +1,15 @@
 import os
 class CalculationsRepository:
+    """This class manages the calculations saved to the csv-file.
+    """
     def __init__(self, root):
+        """The constructor of the class. Defines the directory of the csv-file.
+
+        Args:
+            dir: Directory
+            file: Name of the csv-file.
+            file_path: The path for the csv-file.
+        """
         self._root = root
 
 
@@ -13,6 +22,15 @@ class CalculationsRepository:
         ### ChatGPT:llä generoitu koodi päättyy
 
     def fetch_history(self, username):
+        """Retrieves from the csv-file the calculations of a certain user.
+
+        Args:
+            username: Username of the current logged in user of the calculator.
+
+        Returns:
+            calculations: List of all calculations performed by the user.
+        """
+
         calculations = []
         try:
             file_path = os.path.join("data", "calculations.csv")
@@ -27,6 +45,16 @@ class CalculationsRepository:
             return calculations
 
     def add_calculation(self, username, entry_value, result):
+        """Add calculation to csv-file.
+
+        Args:
+            username: Logged in user.
+            entry_value: The calculation performed by the user. Contains operators and operands.
+            result: The result of the calculation. If the input is invalid, the result is "Virhe".
+
+        Returns:
+            Returns True.
+        """
 
         file_path = os.path.join("data", "calculations.csv")
         with open(file_path, "a", encoding="utf-8") as f:

@@ -77,7 +77,7 @@ class SignUp:
         Returns:
             False, if the username is shorten than 3 characters. Otherwise, return True.
         """
-        
+
         if len(username) < 3:
             return False
         return True
