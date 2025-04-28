@@ -8,7 +8,16 @@ from repositories.calculations_repository import CalculationsRepository
 
 
 class Calculator:
+    """A User interface class. Shows the calculator view to the user.
+    """
     def __init__(self, root):
+        """The constructor of the class
+
+        Args:
+            _entry: Sequence of numbers and operands the user has clicked. None at start.
+            _calculator_logid: Backend class CalculatorLogic
+            _calculations: Repository class CalculationsRepository
+        """
         
         self._root = root
         self._entry = None
@@ -16,9 +25,12 @@ class Calculator:
         self._calculator_logic = CalculatorLogic()
         self._calculations = CalculationsRepository(self._root)
 
-        self._errormessage = False
-
     def start(self, username):
+        """Method for showing the calculator view: buttons, entry boxes etc.
+
+        Args:
+            username: Username of the logged in user.
+        """
 
         self._username = username
         self._entry = ttk.Entry(master=self._root)
@@ -62,6 +74,8 @@ class Calculator:
 
     ### ChatGPT:llä generoitu koodi alkaa
     def show_instructions(self):
+        """Method for showing user the instructions on how to draw functions.
+        """
         
         instructions_window = Toplevel(self._root)
         instructions_window.title("Funktion piirtäminen")
@@ -81,10 +95,17 @@ class Calculator:
     ### ChatGPT:llä generoitu koodi päättyy
 
     def _draw(self):
+        """Draws function entered by user.
+        """
+
         function = self._function.get()
         self._calculator_logic._draw(function)
 
     def print_calculations(self):
+        """Fetches from repository the calculations performed by the user
+        and shows them in a box.
+        """
+
         calculations = self._fetch_history(self._username)
 
         calculations.reverse()
@@ -103,10 +124,23 @@ class Calculator:
         ### ChatGPT:llä generoitu koodi päättyy        
 
     def _fetch_history(self, username):
+        """Fetch from csv file the calculations performed by the logged in user.
+
+        Args:
+            username: Username of the logged in user.
+
+        Returns:
+            calculations: Returns a list of calculations from calculations repository.
+        """
 
         return self._calculations.fetch_history(username)
 
     def _handle_button_click(self, button):
+        """This method handles the clicks performed by the user.
+
+        Args:
+            button: The button user just clicked.
+        """
 
         entry_value = self._entry.get()
 
@@ -120,6 +154,11 @@ class Calculator:
     ### ChatGPT:llä generoitu koodi alkaa
 
     def update_entry(self, update):
+        """Shows in an entry box the sequence of numbers and operands that user has clicked.
+
+        Args:
+            update: The current entry updated by the newest click the user just made.
+        """
 
         self._entry.config(state="normal")
         self._entry.delete(0, "end")
@@ -129,6 +168,10 @@ class Calculator:
     ### ChatGPT:llä generoitu koodi päättyy
 
     def _logging_out(self):
+        """Logging out method. Destroy the current calculator view and move to log in view
+        which is the launch up view of the application.
+        """
+
         from login_view import Login
         self._login = Login(self._root)
 
@@ -137,6 +180,8 @@ class Calculator:
         self._login.start()
     
     def add_numbers(self):
+        """Add number buttons to the current calculator view.
+        """
 
         self._number0 = ttk.Button(master=self._root, text="0", command=lambda: self._handle_button_click("0"))
         self._number1 = ttk.Button(master=self._root, text="1", command=lambda: self._handle_button_click("1"))
@@ -161,6 +206,8 @@ class Calculator:
         self._number0.grid(row=4, column=1)
     
     def add_operators_and_result(self):
+        """Add operators and result buttons to the current calculator view.
+        """
 
         self._plus = ttk.Button(master=self._root, text="+", command=lambda: self._handle_button_click("+"))
         self._minus = ttk.Button(master=self._root, text="-", command=lambda: self._handle_button_click("-"))
@@ -181,6 +228,8 @@ class Calculator:
         self._clear.grid(row=5, column=0)
     
     def destroy_calculator_view(self):
+        """Upon logging out, destroy the current calculator view to give way to log in view.
+        """
 
         self._number0.destroy()
         self._number1.destroy()
