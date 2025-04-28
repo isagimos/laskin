@@ -6,7 +6,20 @@ import numexpr as ne
 from repositories.calculations_repository import CalculationsRepository
 
 class CalculatorLogic:
+    """A class to manage the backend functions of the calculator.
+
+    Attributes:
+        _calculations: Repository for the calculations.
+        _operator: Mathematical operators supported by the calculator.
+
+    """
     def __init__(self):
+        """The constructor of the class.
+
+        Args:
+            _calculations: Repository for the calculations.
+            _operator: Mathematical operators supported by the calculator.
+        """
         self._root = self
 
         self._calculations = CalculationsRepository(self._root)
@@ -14,6 +27,20 @@ class CalculatorLogic:
         self._operators = ["+", "-", "*", "/"]
 
     def handle_click(self, entry_value, button, username):
+        """Responses to the actions of the user of the calculator.
+
+        Args:
+            entry_value: The sequence of operators and operands that the user has clicked.
+            button: The newest button clicked by the user.
+            username: The username of the logged in user of the calculator.
+
+        Returns:
+            "": Empty string
+            entry_value
+            button
+            entry_value + button
+            result: The result of the calculation, if the user has clicked "="
+        """
         if button == "C":
             return ""
 
@@ -74,6 +101,15 @@ class CalculatorLogic:
         return entry_value + button
 
     def _draw(self, function):
+        """Draws a graph of a mathematical function according to the input of the user.
+
+        Args:
+            function: The mathematical function given by the user of the calculator.
+
+        Returns:
+            True: The graph is showed
+            False: The graph is not showed; error in the input.
+        """
         x = np.linspace(-10, 10, 400)
         try:
             y = ne.evaluate(function, local_dict={"x": x})
