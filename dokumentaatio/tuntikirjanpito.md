@@ -20,5 +20,6 @@
 | 14.4. | 1 | koodin laadun parantaminen karsimalla pylint-virheitä |
 | 17.4. | 2 | tiedostojen käsittelyn siirto sovelluslogiikasta repositories-hakemistoon |
 | 22.4. | 1 | sekvenssikaavio käyttäjätunnuksen luomisesta |
-| 28.3. | 2 | koodin docstring-dokumentaatio |
-| yhteensä | 47 |
+| 28.4. | 2 | koodin docstring-dokumentaatio |
+| 29.4. | 1 | readmen ja changelogin päivitys, releasen luominen, varmistus että sovellus toimii Cubbli Linuxilla |
+| yhteensä | 48 |
