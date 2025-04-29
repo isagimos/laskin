@@ -44,3 +44,4 @@
 
 ## Viikko 6
 - Tietokannan lukeminen ja kirjoittaminen toteutui aiemmin sovelluslogiikassa. Nyt tehty repository-mallin mukainen toteutus. Luotu hakemisto repositories, jonne tehty luokat **CalculationsRepostiory** ja **UsersRepository**.
+- Muita muutoksia sovelluslogiikkaan tai käyttöliittymään ei tämän viikon palautukselle ole; sovellus on jo tullut valmiiksi.
