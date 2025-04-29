@@ -1,7 +1,7 @@
 Ohjelmistotekniikan harjoitustyö: Laskin
 ================================
 
-Tavoitteena on koodata **laskin**, jossa käyttäjä pystyy *kirjautumaan sisään*, laskemaan yksinkertaisia *laskutoimituksia* ja näkemään oman laskimen käyttönsä *historian*.
+**Laskimen** käyttäjä pystyy *kirjautumaan sisään*, laskemaan yksinkertaisia *laskutoimituksia* ja näkemään oman laskimen käyttönsä *historian*. Lisäksi laskimella voi piirtää graafisen esityksen käyttäjän syöttämästä funktiosta.
 
 ## Dokumentaatio
 
