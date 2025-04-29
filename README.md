@@ -9,7 +9,7 @@ Tavoitteena on koodata **laskin**, jossa käyttäjä pystyy *kirjautumaan sisä�
 - [Vaatimusmäärittely](https://github.com/isagimos/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 - [Changelog](https://github.com/isagimos/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
 - [Arkkitehtuuri](https://github.com/isagimos/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
-- [GitHub release](https://github.com/isagimos/ot-harjoitustyo/releases/tag/viikko5)
+- [GitHub releaset](https://github.com/isagimos/ot-harjoitustyo/releases)
 
 ## Sovelluksen käyttöönotto
 
