@@ -5,18 +5,18 @@ Ohjelmistotekniikan harjoitustyö: Laskin
 
 ## Dokumentaatio
 
-- [Työaikakirjanpito](https://github.com/isagimos/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
-- [Vaatimusmäärittely](https://github.com/isagimos/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
-- [Changelog](https://github.com/isagimos/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
-- [Arkkitehtuuri](https://github.com/isagimos/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
-- [GitHub releaset](https://github.com/isagimos/ot-harjoitustyo/releases)
+- [Työaikakirjanpito](https://github.com/isagimos/laskin/blob/master/dokumentaatio/tuntikirjanpito.md)
+- [Vaatimusmäärittely](https://github.com/isagimos/laskin/blob/master/dokumentaatio/vaatimusmaarittely.md)
+- [Changelog](https://github.com/isagimos/laskin/blob/master/dokumentaatio/changelog.md)
+- [Arkkitehtuuri](https://github.com/isagimos/laskin/blob/master/dokumentaatio/arkkitehtuuri.md)
+- [GitHub releaset](https://github.com/isagimos/laskin/releases)
 
 ## Sovelluksen käyttöönotto
 
 Avaa terminaali ja kloonaa repositorio:
 
 ```bash
-git clone https://github.com/isagimos/ot-harjoitustyo.git
+git clone https://github.com/isagimos/laskin.git
 ```
 
 Siirry repositorion hakemistoon ja asenna riippuvuudet:
