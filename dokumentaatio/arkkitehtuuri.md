@@ -1,3 +1,19 @@
+# Arkkitehtuuri
+
+Sovelluksen koodi sijaitsee kolmessa hakemistossa: repositories, services ja ui.
+- repositories
+  - Sisältää luokat, jotka vastaavat tietokantaoperaatioista: tiedon haku ja tallennus csv-tiedostoihin
+- services
+  - Sovelluksen backend-taso. Sisältää luokat, jotka jotka vastaavat sovelluslogiikan toteuttamisesta
+- ui
+  - Sisältää luokat, jotka vastaavat sovelluksen käyttöliittymästä.
+  - Käyttöliittymänäkymiä on kolme:
+    - Sisäänkirjautumisnäkymä (avautuu, kun sovellus käynnistetään). Sisäänkirjautumisnäkymästä voi siirtyä:
+    - Tunnuksen luonti -näkymään
+    - Laskin-näkymään
+
+
+
 ## Toiminnallisuudet sekvenssikaavioina
 
 ### Käyttäjätunnuksen luominen:
