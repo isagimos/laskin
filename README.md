@@ -9,7 +9,12 @@ Ohjelmistotekniikan harjoitustyö: Laskin
 - [Vaatimusmäärittely](https://github.com/isagimos/laskin/blob/master/dokumentaatio/vaatimusmaarittely.md)
 - [Changelog](https://github.com/isagimos/laskin/blob/master/dokumentaatio/changelog.md)
 - [Arkkitehtuuri](https://github.com/isagimos/laskin/blob/master/dokumentaatio/arkkitehtuuri.md)
-- [GitHub releaset](https://github.com/isagimos/laskin/releases)
+
+## GitHub Releaset
+
+- [Viikko 5](https://github.com/isagimos/laskin/releases/tag/viikko5)
+- [Viikko 6](https://github.com/isagimos/laskin/releases/tag/viikko6)
+- [Loppupalautus](https://github.com/isagimos/laskin/releases/tag/loppupalautus)
 
 ## Sovelluksen käyttöönotto
 
