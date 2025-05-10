@@ -23,4 +23,5 @@
 | 28.4. | 2 | koodin docstring-dokumentaatio |
 | 29.4. | 1 | readmen ja changelogin päivitys, releasen luominen, varmistus että sovellus toimii Cubbli Linuxilla |
 | 9.5. | 2 | testausdokumentin ja käyttöohjeen luominen |
-| yhteensä | 50 |
+| 10.5. | 0,5 | varmistus, että kaikki ok loppupalautusta varten: dokumentaation viimeistelyä, testattu että sovellus toimii Cubbli Linuxilla |
+| yhteensä | 50,5 |
