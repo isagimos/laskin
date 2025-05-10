@@ -9,6 +9,8 @@ Ohjelmistotekniikan harjoitustyö: Laskin
 - [Vaatimusmäärittely](https://github.com/isagimos/laskin/blob/master/dokumentaatio/vaatimusmaarittely.md)
 - [Changelog](https://github.com/isagimos/laskin/blob/master/dokumentaatio/changelog.md)
 - [Arkkitehtuuri](https://github.com/isagimos/laskin/blob/master/dokumentaatio/arkkitehtuuri.md)
+- [Testausdokumentti](https://github.com/isagimos/laskin/blob/master/dokumentaatio/testaus.md)
+- [Käyttöohje](https://github.com/isagimos/laskin/blob/master/dokumentaatio/kayttoohje.md)
 
 ## GitHub Releaset
 
