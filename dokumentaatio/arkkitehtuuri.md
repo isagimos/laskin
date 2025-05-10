@@ -14,7 +14,7 @@ Sovelluksen koodi sijaitsee kolmessa hakemistossa: repositories, services ja ui.
 
 
 
-## Toiminnallisuudet sekvenssikaavioina
+## Toiminnallisuus sekvenssikaaviona
 
 ### Käyttäjätunnuksen luominen:
 
